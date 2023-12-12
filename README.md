@@ -1,4 +1,13 @@
-# MyApp
+# Angular Recipe Book app
+A recipe book app developed by angular and a firebase database
+
+interface :
+![1](https://github.com/zack079/Recipe-angular-app/assets/94627382/ef5beb8f-90fe-49a8-8925-0ec5be913b82)
+
+![2](https://github.com/zack079/Recipe-angular-app/assets/94627382/f2c57b27-d06f-477e-83c2-2a92c4076de3)
+
+![3](https://github.com/zack079/Recipe-angular-app/assets/94627382/8294d25b-4d2f-4bb7-836a-088d02de72af)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.5.
 
