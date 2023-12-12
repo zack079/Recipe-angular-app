@@ -1,11 +1,16 @@
-import { EventEmitter } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Recipe } from './recipe.model';
 import { Ingredient } from '../shared/ingredients.model';
-
+import { HttpClient } from '@angular/common/http';
+@Injectable({ providedIn: 'root' })
 export class RecipeService {
   //recipeSelected = new EventEmitter<Recipe>();
   recipesChanged = new EventEmitter<Recipe[]>();
 
+  url = 'https://recipe-book-478e1-default-rtdb.firebaseio.com/';
+  constructor(private http: HttpClient) {
+    this.fetchRecipes();
+  }
   private recipes: Recipe[] = [
     new Recipe(
       0,
@@ -45,5 +50,23 @@ export class RecipeService {
   deleteRecipe(index: number) {
     this.recipes.splice(index, 1);
     this.recipesChanged.emit(this.recipes.slice());
+  }
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.emit(this.recipes.slice());
+  }
+
+  storeRecipes() {
+    this.http.put(this.url + 'recipes.json', this.recipes).subscribe((res) => {
+      console.log(res);
+    });
+  }
+
+  fetchRecipes() {
+    this.http.get<Recipe[]>(this.url + 'recipes.json').subscribe((recipes) => {
+      //body of http response
+      this.setRecipes(recipes);
+    });
   }
 }

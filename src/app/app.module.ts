@@ -17,7 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { RecipeService } from './recipes/recipe.service';
-import { HttpReqsComponent } from './http-reqs/http-reqs.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,6 @@ import { HttpReqsComponent } from './http-reqs/http-reqs.component';
     ShoppingEditComponent,
     RecipeStartComponent,
     RecipeEditComponent,
-    HttpReqsComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +39,7 @@ import { HttpReqsComponent } from './http-reqs/http-reqs.component';
     NgbModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [ShoppingListService, RecipeService],
   bootstrap: [AppComponent],
