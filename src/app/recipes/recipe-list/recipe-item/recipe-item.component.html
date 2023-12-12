@@ -1,0 +1,15 @@
+<div
+  class="card hovering"
+  style="width: 18rem; cursor: pointer"
+  [routerLink]="['/recipes', recipeItem.id]"
+>
+  <img
+    [src]="recipeItem.imagePath"
+    alt="{{ recipeItem.name }}"
+    class="card-img-top img-responsive"
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ recipeItem.name }}</h5>
+    <p class="card-text">{{ recipeItem.description }}</p>
+  </div>
+</div>
